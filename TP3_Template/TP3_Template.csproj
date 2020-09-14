@@ -5,4 +5,8 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\TP3_Modelo\TP3_Modelo.csproj" />
+  </ItemGroup>
+
 </Project>

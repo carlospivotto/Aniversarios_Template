@@ -6,25 +6,33 @@ namespace TP3_Modelo
 {
     public class RepositorioPessoas
     {
-        public List<Pessoa> Pessoas { get; set; }
+        public static List<Pessoa> Pessoas { get; set; }
 
-        public RepositorioPessoas()
-        {
-            Pessoas = new List<Pessoa>();
-        }
-
-        public List<Pessoa> BuscarPessoa(string nome)
+        public static List<Pessoa> BuscarPessoa(string busca)
         {
             List<Pessoa> resultados = new List<Pessoa>();
-
             // TODO: Lógica da busca.
+            foreach(var p in Pessoas)
+            {
+                var nomeCompleto = $"{p.Nome} {p.Sobrenome}";
+                if (nomeCompleto.Contains(busca))
+                {
+                    resultados.Add(p);
+                }
+            }
 
             return resultados;
         }
 
-        public void InserirPessoa(Pessoa pessoa)
+        public static void InserirPessoa(Pessoa pessoa)
         {
             Pessoas.Add(pessoa);
+            // Para o AT: Adicionar também ao arquivo
+        }
+
+        public List<Pessoa> LerArquivo(string caminhoArquivo)
+        {
+            return new List<Pessoa>();
         }
     }
 }
